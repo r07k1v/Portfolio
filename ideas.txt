@@ -1,0 +1,6 @@
+Create a memory card game. 
+	The page should offer feedback and keep a ranking of the best players.
+Create a survey site.
+	Must take Q/A from a text file, show the them to a client. Only registered
+	users must have access, should offer an administration panel.
+ 

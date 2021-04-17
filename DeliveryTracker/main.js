@@ -21,9 +21,8 @@ function createBtn(node, time_frame, day) {
   btnNode.setAttribute("id", "btn" + time_frame + day);
   btnNode.setAttribute(
     "onclick",
-    "takeOne('" + btnNode.getAttribute("id") + "');"
+    "toggle('" + btnNode.getAttribute("id") + "');"
   );
-  btnNode.style = "color:white;background-color:green";
   nodetd.appendChild(btnNode);
   node.appendChild(nodetd);
 }
@@ -38,11 +37,17 @@ for (i = 8; i <= 20; i++) {
   }
 }
 
-function takeOne(id) {
+function toggle(id) {
   let btn = document.getElementById(id);
   let cnt = btn.innerHTML;
   if (cnt > 0) {
-    cnt = cnt - 1;
+    if (cnt < 8) {
+      cnt = parseInt(cnt) + 1;
+      btn.style = "color:black;background-color:none;";
+    } else {
+      cnt -= 1;
+      btn.style = "color:white;background-color:green";
+    }
     btn.innerHTML = cnt;
     if (cnt <= 0) {
       btn.style = "color:white; background-color:red";
