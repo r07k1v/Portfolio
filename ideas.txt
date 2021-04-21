@@ -3,4 +3,4 @@ Create a memory card game.
 Create a survey site.
 	Must take Q/A from a text file, show the them to a client. Only registered
 	users must have access, should offer an administration panel.
- 
+Make a To-Do app where you can manage different "folders" and notes 
