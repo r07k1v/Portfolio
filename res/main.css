@@ -1,81 +1,3 @@
-<<<<<<< HEAD
-body {
-  height: 100%;
-  background: radial-gradient(
-    circle,
-    rgb(91, 129, 255) 10%,
-    rgb(72, 174, 199) 90%
-  );
-
-  color: white;
-  margin: 0px;
-}
-
-a {
-  color: white;
-  text-decoration: none;
-}
-
-.container {
-  width: 80%;
-  max-width: 960px;
-  min-width: 360px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-#my_name {
-  float: left;
-  margin: 0px;
-  padding: 6px;
-}
-
-nav {
-  background-color: rgb(0, 0, 0, 0.1);
-  text-align: right;
-  font-style: italic;
-  margin-top: 30px;
-  margin-bottom: 25px;
-}
-
-nav ul {
-  padding-top: 6px;
-  padding-bottom: 5px;
-  margin: 0px;
-}
-
-nav ul li {
-  list-style-type: none;
-  display: inline;
-  padding: 6px;
-}
-
-nav ul li:hover {
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-main {
-  background-color: rgb(0, 0, 0, 0.1);
-  min-height: 250px;
-  padding: 20px;
-}
-
-footer {
-  background-color: rgb(0, 0, 0, 0.1);
-  height: 30px;
-}
-
-h1 {
-  margin: 0px;
-}
-
-.roundImage {
-  width: 96px;
-  height: 96px;
-  border-radius: 50%;
-}
-=======
 body {
   height: 100%;
   background: radial-gradient(
@@ -85,19 +7,19 @@ body {
   );
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-align: justify;
-  color: rgb(230,230,230);
+  color: rgb(230, 230, 230);
   margin: 0px;
 }
 
 a {
-  color: rgb(230,230,230);
+  color: rgb(230, 230, 230);
   text-decoration: none;
-  padding:5px 0px 6px 0px;
+  padding: 5px 0px 6px 0px;
 }
 
 a:hover {
   transition-duration: 0.5s;
-  color: rgb(0,0,0,0.9);
+  color: rgb(0, 0, 0, 0.9);
 }
 
 .container {
@@ -137,7 +59,7 @@ nav ul li:hover {
   text-decoration: underline;
   cursor: pointer;
   transition-duration: 0.5s;
-  color:rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.9);
 }
 
 main {
@@ -155,7 +77,7 @@ footer {
   font-size: 8px;
   padding: 20px;
   text-align: right;
-  color: rgb(230,230,230);
+  color: rgb(230, 230, 230);
   border-radius: 20px;
 }
 
@@ -164,9 +86,36 @@ h1 {
 }
 
 .newspaperlike {
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
   font-size: 2.5rem;
-  float:  left;
+  float: left;
   margin: -4px 5px 5px 0px;
 }
->>>>>>> f1ccabbc6662851b3278536cf657584bd065a2de
+
+#sendmail {
+  width: 307px;
+  margin: 0 auto 50px auto;
+  color: black;
+}
+
+#sendmail input {
+  width: 300px;
+  height: 25px;
+  margin: 5px 0px;
+}
+
+#sendmail textarea {
+  width: 305px;
+  height: 300px;
+}
+
+.btn {
+  float: left;
+  margin-top: 10px;
+  background-color: white;
+  color: black;
+  padding: 5px;
+  text-align: center;
+  width: 100px;
+  cursor: pointer;
+}

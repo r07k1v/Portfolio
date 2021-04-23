@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-$(document).ready(function () {
-  $("#main_content").load("res/resume.html");
-  $("#navbar").load("res/nav.html");
-});
-=======
 $(document).ready(function () {
   let title = document.getRootNode().title;
   if (title === "Portfolio") {
@@ -16,4 +10,3 @@ $(document).ready(function () {
 
   }
 });
->>>>>>> f1ccabbc6662851b3278536cf657584bd065a2de
