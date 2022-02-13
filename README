@@ -1,0 +1,25 @@
+#Welcome to my Portfolio
+
+##Who am I?
+My name is Victor Moreno and I've been a software developer since 2016, starting with my contributions to the Drupal website and teaching the how to update at my university campus CUCEI in Universidad de Guadalajara. Around the same months I worked part-time at DELL Services, maintaining some of the firewall's used, solving incidents and developing a single page website dedicated to compile the information related to routers, switches, firewalls used by the company.
+
+July 2017, I started as an IBM Mainframe developer at TCS working as a contractor for a health insurance company based in the US providing the means for it's customers to send their enrollment information as 834 files, processing them manually at the testing environment; coding and deploying the automation jobs to process them once in production.
+
+During 2019 my role extended to QA analyst, reviewing the JCL code, issuing defects and correcting them as necessary as well as solving related production incidents.
+
+On 2021, still within TCS, I moved to a Java developer position for a third team where I started with developing and testing of a custom messaging application, middleware used to interact with Kafka/MQ servers. Recently redirected my efforts to provide customers with a budget of the efforts required for automating their file transfers to and from internal network, creating Apigee proxy solutions, designing the schematics and deploying it to the different environments.
+
+##This repository
+
+In this repo you'll find a compilation of projects I've created to learn and practice with the different technologies in my road to become a full-fledged developer.
+
+Learning the basics:
+
+1. Resume
+2. Stopwatch
+3. To-Do list
+4. Survey
+
+Ideas for future projects
+
+-
