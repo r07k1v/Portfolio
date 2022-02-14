@@ -1,4 +1,55 @@
 class StopWatch {
+    
+    constructor() {
+        this.hours   = "00";
+        this.minutes = "00";
+        this.seconds = "00";
+        this.startTime =  null;
+        this.endTime =  null;
+    }
+    
+    updateTime(){
+        this.endTime = new Date();
+        let difference = this.endTime - this.startTime;    
+        difference = Number.parseInt(difference/1000);
+        this.seconds = ('0' + difference%60).slice(-2);
+        this.minutes = ('0' + Number.parseInt(difference/60)).slice(-2);
+        this.hours = ('0' + Number.parseInt(difference/3600)).slice(-2);
+
+        document.getElementById("hours").innerHTML = this.hours;
+        document.getElementById("minutes").innerHTML = this.minutes;
+        document.getElementById("seconds").innerHTML = this.seconds;
+    }
+
+    start(){
+        this.startTime = new Date();
+    }
+
+    stop(){
+        alert("stopping");
+    }
+
+    addLap(){
+        alert("Adding lap");
+    }    
+}
+
+let watch = new StopWatch();
+let interval = null;
+document.getElementById("start").onclick = function(){
+    watch.start();
+    interval = setInterval(watch.updateTime.bind(watch),1000);
+};
+document.getElementById("stop").onclick = function(){
+    clearInterval(interval);
+};
+document.getElementById("addLap").onclick = function(){
+    watch.addLap();
+};
+
+
+
+/*class StopWatch {
     constructor() {
         this.startTime = 0.0;
         this.isActive = false;
@@ -69,3 +120,4 @@ function resetWatch() {
     watch.reset();
     startWatch();
 }
+*/
