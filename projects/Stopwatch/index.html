@@ -9,18 +9,24 @@
         @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
     </style>
     <link href="../css/style.css" rel="stylesheet">
+    <script
+        src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+        integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
+        crossorigin="anonymous">
+    </script>
 </head>
 <body>
     <div id="reloj">
-
-        <p id="time"><span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span></p>
+        <span id="time">
+            <span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span>.<span id="deciseconds">0</span>
+        </span>
     </div>
     <div id="buttons">
-        <div id="start">Start</div>
-        <div id="stop">Stop</div>
-        <div id="addLap">Lap</div>
+        <div id="start" class="unselectable">Start</div>
+        <div id="reset" class="unselectable">Reset</div>
+        <div id="addLap" class="unselectable">Lap</div>
     </div>
-
+    <div id="lapList"></div>
 </body>
 <script src="init.js"></script>
 </html>
