@@ -38,74 +38,73 @@ class StopWatch {
     }
 
     //To implement both buttons functionality.
-    toggle_start_stop() {
+    start() {
         if (this.startTime == null) {
             this.startTime = new Date();
-            this.isRunning = true;
         }
 
-        if (this.isRunning) {
-            this.isRunning = false;
-            document.getElementById("start").innerHTML = "Pause";
-            document.getElementById("start").classList.toggle("active");
-            $("#reset").show();
-            $("#addLap").show();
-        } else {
-            this.isRunning = true;
-            document.getElementById("start").innerHTML = "Start";
-            document.getElementById("start").classList.toggle("active");
-            $("#addLap").hide();
-        }
+        this.isRunning = true;
+        $("#start-button").hide("slow");
+        $("#pause-button").show("slow");
+        $("#reset-button").show();
+        $("#addLap-button").show();
     }
 
-    reset(){
-        if(!this.isRunning)
-            this.toggle_start_stop();
+    pause() {
+        this.isRunning = false;
+        $("#start-button").show("slow");
+        $("#pause-button").hide("slow");
+        $("#addLap-button").hide();
+    }
+
+    reset() {
         this.lapCounter = 0;
         this.secondsElapsed = -1;
         this.deciseconds = -1;
         this.updateTime();
-        let lapList = document.getElementById("lapList");
+        
+        let lapList = document.getElementById("lapList-container");
         while(lapList.firstChild){
             lapList.removeChild(lapList.firstChild);
         }
-        $("#reset").hide();
+
+        this.pause();
+        $("#reset-button").hide();
     }
 
     addLap(){
         let lap = "" + ++this.lapCounter;
-        let text = lap.padStart(4,' ') + " - " + this.time;
         let tag = document.createElement("p");
         tag.classList.add("lap");
-        tag.innerHTML = text;
-        document.getElementById("lapList").appendChild(tag);
+        tag.innerHTML = lap.padStart(4,' ') + " - " + this.time;
+        document.getElementById("lapList-container").appendChild(tag);
     }    
 }
 
 
 let watch = new StopWatch();
 let interval = null;
-document.getElementById("start").onclick = function(){
-    watch.toggle_start_stop();
-    if(!watch.isRunning) {
-        interval = setInterval(watch.updateTime.bind(watch),100);
-    } else {
-        clearInterval(interval);
-    }
-    
+
+document.getElementById("start-button").onclick = function(){
+    watch.start();
+    interval = setInterval(watch.updateTime.bind(watch),100);
 };
 
-document.getElementById("reset").onclick = function(){
+document.getElementById("pause-button").onclick = function(){
+    clearInterval(interval);    
+    watch.pause();
+};
+
+document.getElementById("reset-button").onclick = function(){
     clearInterval(interval);
     watch.reset();
-}
+};
 
-document.getElementById("addLap").onclick = function(){
+document.getElementById("addLap-button").onclick = function(){
     watch.addLap();
 };
 
-
 jQuery(document).ready(function($){
-    $("#reset").hide();
-    $("#addLap").hide();
+    watch.reset();
+    document.getElementById("buttons-container").style.display = "flow-root";
 });

@@ -9,6 +9,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
     </style>
     <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/buttons.css" rel="stylesheet">
     <script
         src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
         integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
@@ -16,17 +17,18 @@
     </script>
 </head>
 <body>
-    <div id="reloj">
+    <div id="watch-container">
         <span id="time">
             <span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span>.<span id="deciseconds">0</span>
         </span>
     </div>
     <div id="buttons-container">
-        <button id="start" class="unselectable">Start</button>
-        <button id="reset" class="unselectable">Reset</button>
-        <button id="addLap" class="unselectable">Lap</button>
+        <button id="start-button" class="button start unselectable"><span>Start</span></button>
+        <button id="pause-button" class="button pause unselectable"><span>Pause</span></button>
+        <button id="reset-button" class="button reset unselectable"><span>Reset</span></button>
+        <button id="addLap-button" class="button addLap unselectable"><span>Lap</span></button>
     </div>
-    <div id="lapList"></div>
+    <div id="lapList-container"></div>
 </body>
 <script src="init.js"></script>
 </html>

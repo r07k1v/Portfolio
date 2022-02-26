@@ -1,43 +1,6 @@
 body {
-  background-color: rgb(240, 240, 240);
+  background-color: rgb(245, 245, 245);
   height: 100%;
-}
-
-.button {
-  display: inline-flex;
-  position: relative;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  background-color: rgb(111, 151, 199);
-  color: white;
-  border-style: none;
-  height: 35px;
-  width: 100px;
-  margin: 5px;
-  border-radius: 6px;
-  overflow: hidden;
-}
-
-.button.reset::after {
-  content: "";
-  width: 100%;
-  height: 100%;
-  left: -100%;
-  background: red;
-  position: absolute;
-  z-index: 1;
-  transition: 0.5s ease all;
-}
-
-.button.reset:hover::after {
-  left: 0;
-}
-
-.button span {
-  z-index: 2;
-  color: white;
-  transition: 1s ease all;
 }
 
 .lap {
@@ -53,19 +16,6 @@ body {
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
-}
-
-.start {
-  background-color: rgb(92, 165, 90);
-  transition: 0.3s ease all;
-}
-
-.reset {
-  background-color: rgb(212, 90, 90);
-}
-
-.start.active {
-  background-color: rgb(250, 120, 70);
 }
 
 #time {
@@ -85,18 +35,9 @@ body {
   padding: 50px 25px;
 }
 
-#buttons-container {
-  position: relative;
-  left: 50%;
-  margin-left: 240px;
-  margin-top: 65px;
-  width: 200px;
-  display: flexbox;
-}
-
 #lapList-container {
   min-height: 20px;
-  max-height: 200px;
+  max-height: 330px;
   overflow: auto;
   width: 130px;
   position: absolute;
