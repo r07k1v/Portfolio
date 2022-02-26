@@ -71,7 +71,7 @@
   width: 100%;
   height: 100%;
   left: -100%;
-  background: rgb(170, 170, 180);
+  background: rgb(150, 150, 160);
   position: absolute;
   z-index: 1;
   transition: 0.3s ease all;
