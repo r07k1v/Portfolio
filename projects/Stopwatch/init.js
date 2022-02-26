@@ -1,71 +1,110 @@
 class StopWatch {
+    
     constructor() {
-        this.startTime = 0.0;
-        this.isActive = false;
-        this.swTimer = 0.0;
+        this.isRunning = false;
+        this.hours       = "00";
+        this.minutes     = "00";
+        this.seconds     = "00";
+        this.deciseconds = 0;
+        this.startTime   = null;
+        this.endTime     = null;
+        this.secondsElapsed = 0;
+        this.lapCounter  = 0;
+        this.time        = "";
     }
-
-    start = function() {
-        if (!this.isActive) {
-            this.startTime = new Date();
-            this.isActive = true;
-        } 
-        else
-            console.log("Aready started");
-    }
-
-    stop = function() {
-        if (this.isActive) {
-            this.isActive = false;
-            this.swTimer += this.calculateDifference();
+    
+    updateTime(){
+        this.deciseconds += 1;
+        if(this.deciseconds %10 == 0){
+            this.secondsElapsed += 1;
+            this.deciseconds = 0;
         }
-        else
-            console.log("Aready stoped");
+        if(this.secondsElapsed >= 86400)
+            this.secondsElapsed = 0;
+
+        this.formatTime();
+
+        document.getElementById("hours").innerHTML = this.hours;
+        document.getElementById("minutes").innerHTML = this.minutes;
+        document.getElementById("seconds").innerHTML = this.seconds;
+        document.getElementById("deciseconds").innerHTML = this.deciseconds;
     }
 
-    reset = function() {
-        this.swTimer = 0.0;
-        this.isActive = false;
-        sw = document.getElementById("time");
-        sw.innerHTML = Number.parseFloat(0).toFixed(1);
-        return this.swTimer;
+    formatTime() {
+        this.seconds = ('0' + Number.parseInt(this.secondsElapsed%60)).slice(-2);
+        this.minutes = ('0' + Number.parseInt(this.secondsElapsed/60)).slice(-2);
+        this.hours = ('0' + Number.parseInt(this.secondsElapsed/3600)).slice(-2);
+        this.time = this.hours + ":" + this.minutes + ":" + this.seconds + "." + this.deciseconds;
     }
 
-    calculateDifference = function() {
-        let endTime = new Date();
-        let difference = endTime - this.startTime;
-        difference /= 1000;
-        return difference;
-    }
-};
+    //To implement both buttons functionality.
+    start() {
+        if (this.startTime == null) {
+            this.startTime = new Date();
+        }
 
-function updateTime(watch) {
-    sw = document.getElementById("time");
-    sw.innerHTML = Number.parseFloat(watch.calculateDifference() + watch.swTimer).toFixed(1);
+        this.isRunning = true;
+        $("#start-button").hide("slow");
+        $("#pause-button").show("slow");
+        $("#reset-button").show();
+        $("#addLap-button").show();
+    }
+
+    pause() {
+        this.isRunning = false;
+        $("#start-button").show("slow");
+        $("#pause-button").hide("slow");
+        $("#addLap-button").hide();
+    }
+
+    reset() {
+        this.lapCounter = 0;
+        this.secondsElapsed = -1;
+        this.deciseconds = -1;
+        this.updateTime();
+        
+        let lapList = document.getElementById("lapList-container");
+        while(lapList.firstChild){
+            lapList.removeChild(lapList.firstChild);
+        }
+
+        this.pause();
+        $("#reset-button").hide();
+    }
+
+    addLap(){
+        let lap = "" + ++this.lapCounter;
+        let tag = document.createElement("p");
+        tag.classList.add("lap");
+        tag.innerHTML = lap.padStart(4,' ') + " - " + this.time;
+        document.getElementById("lapList-container").appendChild(tag);
+    }    
 }
 
-function getInterval() {
-    return setInterval(updateTime, 100, watch);
-}
 
 let watch = new StopWatch();
+let interval = null;
 
-sw = document.getElementById("time");
-sw.innerHTML = watch.reset();
-let interval;
-
-function startWatch() {
+document.getElementById("start-button").onclick = function(){
     watch.start();
-    interval = getInterval();
-}
+    interval = setInterval(watch.updateTime.bind(watch),100);
+};
 
-function stopWatch() {
-    watch.stop();
+document.getElementById("pause-button").onclick = function(){
+    clearInterval(interval);    
+    watch.pause();
+};
+
+document.getElementById("reset-button").onclick = function(){
     clearInterval(interval);
-}
-
-function resetWatch() {
-    stopWatch();
     watch.reset();
-    startWatch();
-}
+};
+
+document.getElementById("addLap-button").onclick = function(){
+    watch.addLap();
+};
+
+jQuery(document).ready(function($){
+    watch.reset();
+    document.getElementById("buttons-container").style.display = "flow-root";
+});

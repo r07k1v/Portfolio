@@ -5,12 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stopwatch</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+    </style>
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/buttons.css" rel="stylesheet">
+    <script
+        src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+        integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
+        crossorigin="anonymous">
+    </script>
 </head>
 <body>
-    <p>Stopwatch: <span id="time"></span></p>
-    <button id="start" onclick="startWatch()">Start</button>
-    <button id="stop" onclick="stopWatch()">Stop</button>
-    <button id="reset" onclick="resetWatch()">Reset</button>
+    <div id="watch-container">
+        <span id="time">
+            <span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span>.<span id="deciseconds">0</span>
+        </span>
+    </div>
+    <div id="buttons-container">
+        <button id="start-button" class="button start unselectable"><span>Start</span></button>
+        <button id="pause-button" class="button pause unselectable"><span>Pause</span></button>
+        <button id="reset-button" class="button reset unselectable"><span>Reset</span></button>
+        <button id="addLap-button" class="button addLap unselectable"><span>Lap</span></button>
+    </div>
+    <div id="lapList-container"></div>
 </body>
 <script src="init.js"></script>
 </html>
