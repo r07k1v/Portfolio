@@ -20,27 +20,28 @@ body {
   padding: 50px 25px;
 }
 
-#buttons {
-  display: inline-block;
+#buttons-container {
   position: relative;
   left: 50%;
   margin-left: 240px;
-  margin-top: 50px;
+  margin-top: 65px;
+  width: 200px;
+  display: flexbox;
 }
 
 #start,
 #reset,
 #addLap {
+  position: relative;
   text-align: center;
   font-weight: bold;
-  height: 30px;
-  width: 100px;
-  color: white;
-  margin: 5px;
-  padding-top: 10px;
-  border-radius: 6px;
   background-color: rgb(111, 151, 199);
-  display: none;
+  color: white;
+  border-style: none;
+  height: 35px;
+  width: 100px;
+  margin: 5px;
+  border-radius: 6px;
 }
 
 #start {
@@ -68,7 +69,6 @@ body {
   text-align: right;
   border-radius: 10px 0px;
   padding: 1px 5px;
-  /*display:none;*/
 }
 
 .lap {
